@@ -4,6 +4,9 @@ from django.db import models
 class MinimizerRetorts(models.Model):
     shortName = models.CharField(max_length = 100)
     longName = models.CharField(max_length = 400)
+    
+class InfoCategories(models.Model):
+    categoryName = models.CharField(max_length = 100)
 
 class ActualInformation(models.Model):
     headline = models.CharField(max_length = 500)
@@ -14,8 +17,3 @@ class ActualInformation(models.Model):
     
     retorts = models.ManyToManyField(MinimizerRetorts)
     categories = models.ManyToManyField(InfoCategories)
-    
-class InfoCategories(models.Model):
-    categoryName = models.CharField(max_length = 100)
-    retorts = models.ManyToManyField(Retorts)
-    facts = models.ManyToManyField(Facts)
