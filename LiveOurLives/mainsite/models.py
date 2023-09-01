@@ -5,6 +5,9 @@ class MinimizerRetorts(models.Model):
     shortName = models.CharField(max_length = 100)
     longName = models.CharField(max_length = 400)
     display = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.shortName
     
 class InfoCategories(models.Model):
     #Available categories
@@ -34,6 +37,9 @@ class InfoCategories(models.Model):
     ]
 
     categoryName = models.CharField(max_length = 100, choices = categories, default = MISC)
+
+    def __str__(self):
+        return self.categoryName
 
 class ActualInformation(models.Model):
     OTHER_MIXED = "OTHER/MIXED"
@@ -90,3 +96,6 @@ class ActualInformation(models.Model):
     categories = models.ManyToManyField(InfoCategories)
 
     display = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.headline
