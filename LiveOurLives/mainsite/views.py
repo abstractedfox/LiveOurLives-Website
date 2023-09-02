@@ -7,6 +7,10 @@ from .models import MinimizerRetorts
 
 # Create your views here.
 def index(request):
-    context = {}
+    retortsQueryOutput = MinimizerRetorts.objects.all();
+    context = {"MinimizerRetorts": retortsQueryOutput,
+    "defaultRetort": retortsQueryOutput.last()
+}
+    print(context["defaultRetort"])
     
     return render(request, 'mainsite/index.html', context)

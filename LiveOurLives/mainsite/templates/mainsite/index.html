@@ -1,3 +1,20 @@
+{% csrf_token %}
 <html>
-we in it
+    <body>
+        {% if MinimizerRetorts %}
+        
+        <select name="minimizer-dropdown">
+            {% for retort in MinimizerRetorts %}
+                <option value="{{ retort.shortName }}"
+                    {% if retort.shortName == defaultRetort.shortName %}
+                        selected="selected"
+                    {% endif %}
+                    > {{ retort.longName }} </option>
+            {% endfor %}
+        </select>
+        {% else %}
+            <p>No minimizer quips were sent! Did we finally solve covid?</p>
+        {% endif %}
+        
+    </body>
 </html>
