@@ -1,17 +1,19 @@
-{% csrf_token %}
+
 <html>
     <body>
         {% if MinimizerRetorts %}
-        
-        <select name="minimizer-dropdown">
-            {% for retort in MinimizerRetorts %}
-                <option value="{{ retort.shortName }}"
-                    {% if retort.shortName == defaultRetort.shortName %}
-                        selected="selected"
-                    {% endif %}
-                    > {{ retort.longName }} </option>
-            {% endfor %}
-        </select>
+        <form action="/" method="post" name="retortSelect">
+            {% csrf_token %}
+            <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()">
+                {% for retort in MinimizerRetorts %}
+                    <option value="{{ retort.shortName }}"
+                        {% if retort.shortName == defaultRetort.shortName %}
+                            selected="selected"
+                        {% endif %}
+                        > {{ retort.longName }} </option>
+                {% endfor %}
+            </select>
+        </form>
         {% else %}
             <p>No minimizer quips were sent! Did we finally solve covid?</p>
         {% endif %}

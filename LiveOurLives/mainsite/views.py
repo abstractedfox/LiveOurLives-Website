@@ -9,8 +9,14 @@ from .models import MinimizerRetorts
 def index(request):
     retortsQueryOutput = MinimizerRetorts.objects.all();
     context = {"MinimizerRetorts": retortsQueryOutput,
-    "defaultRetort": retortsQueryOutput.last()
-}
-    print(context["defaultRetort"])
+    "defaultRetort": retortsQueryOutput.first()
+    }
+    
+    if request.method == "POST":
+        print("we post")
+        if request.POST.get("minimizer-dropdown"):
+            print(request.POST.get("minimizer-dropdown"))
+            #note to me: yes this is actually supposed to be a single =
+            context["defaultRetort"] = retortsQueryOutput.filter(shortName__exact = request.POST.get("minimizer-dropdown")).first()
     
     return render(request, 'mainsite/index.html', context)
