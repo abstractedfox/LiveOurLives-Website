@@ -69,25 +69,29 @@ class ActualInformation(models.Model):
     PRO_GROUP = "GROUP OF PROFESSIONALS"
     ENG = "ENGINEER"
     GOV_BODY = "GOVERNING BODY"
+    JOURNALIST = "JOURNALIST"
     sources = [
         (INDIVIDUAL_ACCOUNT, "Individual account"),
         (MEDICAL_PRO, "Medical professional"),
         (PRO_GROUP, "Group of professionals"),
         (ENG, "Engineer"),
         (GOV_BODY, "Governing body"),
+        (JOURNALIST, "Journalist"),
         (OTHER_MIXED, "Other / Mixed")
     ]
 
     type = models.CharField(max_length = 150, choices = types, default = OTHER_MIXED)
     source = models.CharField(max_length = 150, choices = sources, default = OTHER_MIXED)
+    
+    archiveLink = models.CharField(max_length = 2000, blank = True, default = "")
+    liveLink = models.CharField(max_length = 2000, blank = True, default = "")
 
     headline = models.CharField(max_length = 500)
-    exerpt = models.CharField(max_length = 500)
-    typeOfFact = models.CharField(max_length = 100) 
-    archiveLink = models.CharField(max_length = 2000)
-    liveLink = models.CharField(max_length = 2000)
-
-    participants = models.IntegerField(null = True) #Participants in a study etc
+    exerpt = models.CharField(max_length = 500, blank = True, default = "")
+    author = models.CharField(max_length = 150, blank = True, default = "")
+    authors_title = models.CharField(max_length = 150, blank = True, default = "") #title, credential, or other of the author
+    #typeOfFact = models.CharField(max_length = 100)
+    participants = models.IntegerField(blank = True, default = 0) #Participants in a study etc
 
     datePublished = models.DateField(null = True)
     dateArchived = models.DateField(null = True)

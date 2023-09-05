@@ -1,0 +1,37 @@
+@import url(https://fonts.bunny.net/css?family=abyssinica-sil:400);
+
+@import url(https://fonts.bunny.net/css?family=amiri:400,400i);
+
+#content-container{
+    display:flex;
+    flex-direction: column;
+    
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fact{
+    width: 100%;
+    background-color: #ddd;
+    margin-bottom: 15px;
+    
+    border-radius: 25px;
+    
+    padding:15px;
+    
+    font-family: Amiri, serif;
+}
+
+.fact-headline{
+    font-size: 19pt;
+}
+
+.fact-exerpt{
+    font-size: 14pt;
+}
+
+.fact-author{
+    font-style: italic;
+    font-size: 10pt;
+}

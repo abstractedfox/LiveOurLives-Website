@@ -1,28 +1,61 @@
-
+{% load static %}
 <html>
+    <link rel="stylesheet" href="{% static 'mainsite/style.css' %}">
     <body>
-        {% if MinimizerRetorts %}
-        <form action="/" method="post" name="retortSelect">
-            {% csrf_token %}
-            <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()">
-                {% for retort in MinimizerRetorts %}
-                    <option value="{{ retort.shortName }}"
-                        {% if retort.shortName == defaultRetort.shortName %}
-                            selected="selected"
-                        {% endif %}
-                        > {{ retort.longName }} </option>
-                {% endfor %}
-            </select>
-        </form>
-        {% else %}
-            <p>No minimizer quips were sent! Did we finally solve covid?</p>
-        {% endif %}
         
-        {% if retortResults %}
-            <p>Output:</p>
-            {% for result in retortResults %}
-                <p>{{ result.headline }}</p>
-            {% endfor %}
-        {% endif %}
+        <div id="content-container">
+            {% if MinimizerRetorts %}
+            <form action="/" method="post" name="retortSelect">
+                {% csrf_token %}
+                <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()">
+                    {% for retort in MinimizerRetorts %}
+                        <option value="{{ retort.shortName }}"
+                            {% if retort.shortName == defaultRetort.shortName %}
+                                selected="selected"
+                            {% endif %}
+                            > {{ retort.longName }} </option>
+                    {% endfor %}
+                </select>
+            </form>
+            {% else %}
+                <p>No minimizer quips were sent! Did we finally solve covid?</p>
+            {% endif %}
+            
+            {% if retortResults %}
+                <p>THAT'S WHERE YOU'RE WRONG:</p>
+                {% for result in retortResults %}
+                    <div class="fact">
+                        <div class="fact-headline"><a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
+                        
+                        {% if result.archiveLink %}
+                            <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">{{ result.archiveLink }}</a></div>
+                        {% endif %}
+                        
+                        {% if result.exerpt %}
+                            <div class="fact-exerpt">{{ result.exerpt }}</div>
+                        {% endif %}
+                        
+                        {% if result.author %}
+                            <div class="fact-author">{{ result.author }}</div>
+                        {% endif %}
+                        
+                        {% if result.authors_title %}
+                            <div class="fact-authors-title">{{ result.authors_title }}</div>
+                        {% endif %}
+                        
+                        {% if result.datePublished %}
+                            <div class="fact-datePublished">Date published: {{ result.datePublished }}</div>
+                        {% endif %}
+                        {% if result.dateArchived %}
+                            <div class="fact-dateArchived">Date archived: {{ result.dateArchived }}</div>
+                        {% endif %}
+                        
+                        <div class="fact-type">{{ result.type }}</div>
+                        <div class="fact-source">{{ result.source }}</div>
+                        
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
     </body>
 </html>
