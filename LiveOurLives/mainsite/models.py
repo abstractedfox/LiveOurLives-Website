@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class MinimizerRetorts(models.Model):
     shortName = models.CharField(max_length = 100)
-    longName = models.CharField(max_length = 400)
+    longName = models.CharField(max_length = 400, blank = True)
     display = models.BooleanField(default = False)
 
     def __str__(self):
@@ -90,16 +90,15 @@ class ActualInformation(models.Model):
     exerpt = models.CharField(max_length = 500, blank = True, default = "")
     author = models.CharField(max_length = 150, blank = True, default = "")
     authors_title = models.CharField(max_length = 150, blank = True, default = "") #title, credential, or other of the author
-    #typeOfFact = models.CharField(max_length = 100)
     participants = models.IntegerField(blank = True, default = 0) #Participants in a study etc
 
-    datePublished = models.DateField(null = True)
-    dateArchived = models.DateField(null = True)
+    datePublished = models.DateField(null = True, blank = True)
+    dateArchived = models.DateField(null = True, blank = True)
     
     retorts = models.ManyToManyField(MinimizerRetorts)
     categories = models.ManyToManyField(InfoCategories)
 
-    display = models.BooleanField(default = False)
+    display = models.BooleanField(default = True)
 
     def __str__(self):
         return self.headline
