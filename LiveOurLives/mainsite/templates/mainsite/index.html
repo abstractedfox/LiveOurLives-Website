@@ -18,5 +18,11 @@
             <p>No minimizer quips were sent! Did we finally solve covid?</p>
         {% endif %}
         
+        {% if retortResults %}
+            <p>Output:</p>
+            {% for result in retortResults %}
+                <p>{{ result.headline }}</p>
+            {% endfor %}
+        {% endif %}
     </body>
 </html>
