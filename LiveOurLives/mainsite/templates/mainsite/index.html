@@ -50,8 +50,9 @@
                             <div class="fact-dateArchived">Date archived: {{ result.dateArchived }}</div>
                         {% endif %}
                         
-                        <div class="fact-type">{{ result.type }}</div>
-                        <div class="fact-source">{{ result.source }}</div>
+                        <div class="fact-type">Type of piece: {{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                        </div>
+                        <div class="fact-source">Type of source: {{ result.get_source_display }}</div>
                         
                     </div>
                 {% endfor %}

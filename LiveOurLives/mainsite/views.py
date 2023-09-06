@@ -8,9 +8,12 @@ from .models import MinimizerRetorts, InfoCategories, ActualInformation
 # Create your views here.
 def index(request):
     retortsQueryOutput = MinimizerRetorts.objects.all();
+
     context = {"MinimizerRetorts": retortsQueryOutput,
     "defaultRetort": retortsQueryOutput.first(),
-    "retortResults": {}
+    "retortResults": {},
+    "infoTypes": ActualInformation.types,
+    "infoSources": ActualInformation.sources
     }
     
     if request.method == "POST":
@@ -22,4 +25,10 @@ def index(request):
             
             context["retortResults"] = ActualInformation.objects.filter(retorts__exact = chosenRetort)
     
+    else:
+        blankOption = retortsQueryOutput.filter(shortName__exact = "BLANK")
+        if blankOption.count() == 1:
+            context["defaultRetort"] = blankOption.first()
+
+
     return render(request, 'mainsite/index.html', context)
