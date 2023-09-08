@@ -5,20 +5,28 @@
 #content-container{
     display:flex;
     flex-direction: column;
-    
-    width: 70%;
+    background-color: #ddffff;
+
+    width: 50rem;
     margin-left: auto;
     margin-right: auto;
 }
 
+.flexrow{
+    display: flex;
+    flex-direction: row;
+}
+
 .fact{
+    box-sizing: border-box;
+
     width: 100%;
     background-color: #ddd;
     margin-bottom: 15px;
     
     border-radius: 25px;
     
-    padding:15px;
+    padding:2%;
     
     font-family: Amiri, serif;
 }

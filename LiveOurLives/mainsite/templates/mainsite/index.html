@@ -25,35 +25,40 @@
                 <p>THAT'S WHERE YOU'RE WRONG:</p>
                 {% for result in retortResults %}
                     <div class="fact">
-                        <div class="fact-headline"><a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
+                        <div class="flexrow">
+                            <div class="fact-headline"><a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
                         
-                        {% if result.archiveLink %}
-                            <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">{{ result.archiveLink }}</a></div>
-                        {% endif %}
-                        
-                        {% if result.exerpt %}
-                            <div class="fact-exerpt">{{ result.exerpt }}</div>
-                        {% endif %}
-                        
-                        {% if result.author %}
-                            <div class="fact-author">{{ result.author }}</div>
-                        {% endif %}
-                        
-                        {% if result.authors_title %}
-                            <div class="fact-authors-title">{{ result.authors_title }}</div>
-                        {% endif %}
-                        
-                        {% if result.datePublished %}
-                            <div class="fact-datePublished">Date published: {{ result.datePublished }}</div>
-                        {% endif %}
-                        {% if result.dateArchived %}
-                            <div class="fact-dateArchived">Date archived: {{ result.dateArchived }}</div>
-                        {% endif %}
-                        
-                        <div class="fact-type">Type of piece: {{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                            {% if result.archiveLink %}
+                                <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">{{ result.archiveLink }}</a></div>
+                            {% endif %}
                         </div>
-                        <div class="fact-source">Type of source: {{ result.get_source_display }}</div>
                         
+                        <div class="flexrow">
+                            {% if result.exerpt %}
+                                <div class="fact-exerpt">{{ result.exerpt }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="flexrow">
+                            {% if result.author %}
+                                <div class="fact-author">{{ result.author }}</div>
+                            {% endif %}
+                            
+                            {% if result.authors_title %}
+                                <div class="fact-authors-title">{{ result.authors_title }}</div>
+                            {% endif %}
+                            
+                            {% if result.datePublished %}
+                                <div class="fact-datePublished">Date published: {{ result.datePublished }}</div>
+                            {% endif %}
+                            {% if result.dateArchived %}
+                                <div class="fact-dateArchived">Date archived: {{ result.dateArchived }}</div>
+                            {% endif %}
+                            
+                            <div class="fact-type">Type of piece: {{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                            </div>
+                            <div class="fact-source">Type of source: {{ result.get_source_display }}</div>
+                        </div>
                     </div>
                 {% endfor %}
             {% endif %}
