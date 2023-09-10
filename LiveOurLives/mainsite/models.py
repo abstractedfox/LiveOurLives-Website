@@ -87,6 +87,7 @@ class ActualInformation(models.Model):
     liveLink = models.CharField(max_length = 2000, blank = True, default = "")
 
     headline = models.CharField(max_length = 500)
+    publication = models.CharField(max_length = 150, blank = True, default="")
     exerpt = models.CharField(max_length = 500, blank = True, default = "")
     author = models.CharField(max_length = 150, blank = True, default = "")
     authors_title = models.CharField(max_length = 150, blank = True, default = "") #title, credential, or other of the author
@@ -102,3 +103,18 @@ class ActualInformation(models.Model):
 
     def __str__(self):
         return self.headline
+
+class ImageInfo(models.Model):
+    localPath = models.CharField(max_length = 200, blank = True, default = "#")
+    altText = models.CharField(max_length = 200, blank = True, default = "")
+    
+    author = models.CharField(max_length = 200, blank = True, default = "")
+    sourcedFrom = models.CharField(max_length = 500, blank = True, default = "")
+    sourceLink = models.CharField(max_length = 500, blank = True, default = "")
+    dateGathered = models.DateField(null = True, blank = True)
+    
+    licenseInfo = models.CharField(max_length = 2000, blank = True, default = "")
+    changesMade = models.CharField(max_length = 1000, blank = True, default = "") #Some licenses require publishing whether changes were made to an image
+
+    def __str__(self):
+        return self.altText;

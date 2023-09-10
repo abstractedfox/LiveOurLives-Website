@@ -1,20 +1,110 @@
 @import url(https://fonts.bunny.net/css?family=abyssinica-sil:400);
 
-@import url(https://fonts.bunny.net/css?family=amiri:400,400i);
+@import url(https://fonts.bunny.net/css?family=aleo:400,400i,700,700i|amiri:400,400i);
+
+:root{
+    --top-height: 24rem;
+    --small-text: 12pt;
+}
+
+body{
+    margin: 0;
+}
+
+#topbar{
+    width: 100%;
+    margin: 0;
+    background-color: orange;
+    
+    font-family: Aleo;
+    padding: 4px;
+    
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+#topbar > *{
+    margin-right: 0.5rem;
+}
+
+#topbar header{
+    font-weight: 700;
+}
 
 #content-container{
     display:flex;
     flex-direction: column;
-    background-color: #ddffff;
 
-    width: 50rem;
+    width: 48rem;
     margin-left: auto;
     margin-right: auto;
 }
 
+#retort-container{
+    width: 100%;
+    height: var(--top-height);
+    #background-color: #ffddee;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    
+    #position: relative;
+    #left: 5rem;
+    
+    margin-bottom: 2rem;
+}
+
+#retort-container select{
+    font-size: 26pt;
+    width: 36rem;
+    position: relative;
+    left: 8rem;
+    top: -1rem;
+}
+
+#minimizer{
+    width: 400px;
+    height: auto;
+    
+    position: relative;
+    left: -13rem;
+    top: 12rem;
+    z-index: -2;
+}
+
+#koe{
+    width: 300px;
+    height: auto;
+    
+    position: relative;
+    left: -3rem;
+    top: 0.5rem;
+    z-index: -1;
+}
+
+
 .flexrow{
     display: flex;
     flex-direction: row;
+    align-items: baseline;
+}
+
+.flexrow > *{
+    margin-right: 0.5rem;
+}
+
+.attributes-row{
+    font-size: var(--small-text);
+    display:inline;
+    width: 100%;
+}
+
+.attributes-row > *{
+    margin-right: 0.7rem;
 }
 
 .fact{
@@ -28,18 +118,61 @@
     
     padding:2%;
     
-    font-family: Amiri, serif;
+    font-family: Aleo, serif;
+}
+
+.fact-publication{
+    font-size: var(--small-text);
+    font-weight: bold;
 }
 
 .fact-headline{
-    font-size: 19pt;
+    font-size: 21pt;
 }
 
 .fact-exerpt{
     font-size: 14pt;
+    margin-bottom: 0.4rem;
 }
 
 .fact-author{
     font-style: italic;
+    display:inline;
+}
+
+.fact-authors-title{
+    font-style: italic bold;
+    display:inline;
+}
+
+.fact-datePublished{
+    display: inline;
+}
+
+.fact-dateArchived{
+    display: inline;
+}
+
+.fact-type{
+    border-radius: 5px;
+    background-color: #1ef400;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.fact-source{
+    border-radius: 5px;
+    background-color: #00c8f4;
+    
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.disclaimer{
+    text-align: center;
     font-size: 10pt;
+}
+
+.voidspace{
+    height: 20rem;
 }

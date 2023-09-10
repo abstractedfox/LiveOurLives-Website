@@ -3,33 +3,51 @@
     <link rel="stylesheet" href="{% static 'mainsite/style.css' %}">
     <body>
         
-        <div id="content-container">
+        <div id="topbar">
+            <header>You Have To Live Your Life</header> <div>A resource for COVID-19 research and information</div>
+        </div>
+        <div id="top-container">
             {% if MinimizerRetorts %}
-            <form action="/" method="post" name="retortSelect">
-                {% csrf_token %}
-                <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()">
-                    {% for retort in MinimizerRetorts %}
-                        <option value="{{ retort.shortName }}"
-                            {% if retort.shortName == defaultRetort.shortName %}
-                                selected="selected"
-                            {% endif %}
-                            > {{ retort.longName }} </option>
-                    {% endfor %}
-                </select>
-            </form>
+            <div id="retort-container">
+                
+                <form action="/" method="post" name="retortSelect">
+                    {% csrf_token %}
+                    <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()" class="minimizer-dropdown">
+                        {% for retort in MinimizerRetorts %}
+                            <option value="{{ retort.shortName }}"
+                                {% if retort.shortName == defaultRetort.shortName %}
+                                    selected="selected"
+                                {% endif %}
+                                > {{ retort.longName }} </option>
+                        {% endfor %}
+                    </select>
+                </form>
+                <img src="{% static 'mainsite/koe2.png' %}" id="koe">
+                
+                {% if minimizerImage %}
+                    <img src="{% static minimizerImage.localPath %}" id="minimizer" alt="{{ minimizerImage.altText}}">
+                {% endif %}
+            </div>
+            
             {% else %}
                 <p>No minimizer quips were sent! Did we finally solve covid?</p>
             {% endif %}
-            
+        </div>
+        <div id="content-container">
             {% if retortResults %}
-                <p>THAT'S WHERE YOU'RE WRONG:</p>
+                <!-- <p>THAT'S WHERE YOU'RE WRONG:</p> -->
                 {% for result in retortResults %}
                     <div class="fact">
+                        {% if result.publication %}
+                            <div class="flexrow">
+                                <div class="fact-publication">{{ result.publication }}</div>
+                            </div>
+                        {% endif %}
                         <div class="flexrow">
                             <div class="fact-headline"><a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
                         
                             {% if result.archiveLink %}
-                                <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">{{ result.archiveLink }}</a></div>
+                                <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">Archive Link</a></div>
                             {% endif %}
                         </div>
                         
@@ -40,28 +58,39 @@
                         </div>
                         
                         <div class="flexrow">
-                            {% if result.author %}
-                                <div class="fact-author">{{ result.author }}</div>
-                            {% endif %}
-                            
-                            {% if result.authors_title %}
-                                <div class="fact-authors-title">{{ result.authors_title }}</div>
-                            {% endif %}
-                            
-                            {% if result.datePublished %}
-                                <div class="fact-datePublished">Date published: {{ result.datePublished }}</div>
-                            {% endif %}
-                            {% if result.dateArchived %}
-                                <div class="fact-dateArchived">Date archived: {{ result.dateArchived }}</div>
-                            {% endif %}
-                            
-                            <div class="fact-type">Type of piece: {{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                            <div class="attributes-row">
+                                {% if result.author %}
+                                    <div class="fact-author">{{ result.author }}</div>
+                                {% endif %}
+                                
+                                {% if result.authors_title %}
+                                    <div class="fact-authors-title">{{ result.authors_title }}</div>
+                                {% endif %}
+                                
+                                {% if result.datePublished %}
+                                    <div class="fact-datePublished">Date published: {{ result.datePublished }}</div>
+                                {% endif %}
+                                {% if result.dateArchived %}
+                                    <div class="fact-dateArchived">Date archived: {{ result.dateArchived }}</div>
+                                {% endif %}
                             </div>
-                            <div class="fact-source">Type of source: {{ result.get_source_display }}</div>
+                        </div>
+                        
+                        <div class="flexrow">
+                            <div class="fact-type">{{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                            </div>
+                            <div class="fact-source">{{ result.get_source_display }}</div>
                         </div>
                     </div>
                 {% endfor %}
+            {% else %}
+                <div class="voidspace"></div>
             {% endif %}
         </div>
+        <footer>
+            <div class="disclaimer">
+                Depictions of any specific individuals' speech are not true quotes and do not represent any specific person's speech or opinions.
+            </div>
+        </footer>
     </body>
 </html>

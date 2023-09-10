@@ -2,19 +2,25 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
-from .models import MinimizerRetorts, InfoCategories, ActualInformation
-
+from .models import MinimizerRetorts, InfoCategories, ActualInformation, ImageInfo
+import random
 
 # Create your views here.
 def index(request):
-    retortsQueryOutput = MinimizerRetorts.objects.all();
+    retortsQueryOutput = MinimizerRetorts.objects.all()
 
     context = {"MinimizerRetorts": retortsQueryOutput,
     "defaultRetort": retortsQueryOutput.first(),
     "retortResults": {},
     "infoTypes": ActualInformation.types,
-    "infoSources": ActualInformation.sources
+    "infoSources": ActualInformation.sources,
+    "minimizerImage": "mainsite/minimizers/wen.png"
     }
+    
+    #Get an image to display next to the dropdown
+    #minimizerImages = ImageInfo.objects.all()
+    jawns = list(ImageInfo.objects.all())
+    context["minimizerImage"] = random.sample(jawns, 1)[0]
     
     if request.method == "POST":
         if request.POST.get("minimizer-dropdown"):
