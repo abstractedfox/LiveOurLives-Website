@@ -4,7 +4,7 @@ from django.db import models
 class MinimizerRetorts(models.Model):
     shortName = models.CharField(max_length = 100)
     longName = models.CharField(max_length = 400, blank = True)
-    display = models.BooleanField(default = False)
+    display = models.BooleanField(default = True)
 
     def __str__(self):
         return self.shortName
