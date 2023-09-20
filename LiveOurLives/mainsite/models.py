@@ -89,7 +89,7 @@ class ActualInformation(models.Model):
     headline = models.CharField(max_length = 500)
     publication = models.CharField(max_length = 150, blank = True, default="")
     exerpt = models.CharField(max_length = 500, blank = True, default = "")
-    author = models.CharField(max_length = 150, blank = True, default = "")
+    author = models.CharField(max_length = 1000, blank = True, default = "")
     authors_title = models.CharField(max_length = 150, blank = True, default = "") #title, credential, or other of the author
     participants = models.IntegerField(blank = True, default = 0) #Participants in a study etc
 
@@ -102,7 +102,7 @@ class ActualInformation(models.Model):
     display = models.BooleanField(default = True)
 
     def __str__(self):
-        return self.headline
+        return self.liveLink
 
 class ImageInfo(models.Model):
     localPath = models.CharField(max_length = 200, blank = True, default = "#")

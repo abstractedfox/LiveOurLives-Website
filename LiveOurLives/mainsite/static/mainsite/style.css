@@ -112,11 +112,13 @@ body{
 
     width: 100%;
     background-color: #ddd;
-    margin-bottom: 15px;
+    margin-bottom: 17px;
     
     border-radius: 25px;
     
     padding:2%;
+    
+    box-shadow: 0px 5px #888;
     
     font-family: Aleo, serif;
 }
