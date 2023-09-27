@@ -7,28 +7,30 @@ import random
 
 # Create your views here.  
 
+#Note: No urls should go here directly, this is so we can use the same code for index() and indexSelection() without having to get weird handling GET/POST stuff
 def renderPage(request, chosenRetort):
-    retortsQueryOutput = MinimizerRetorts.objects.all()
+    retortsQueryOutput = MinimizerRetorts.objects.filter(display__exact = True).exclude(shortName__exact = "BLANK")
+    blankOption = MinimizerRetorts.objects.filter(shortName__exact = "BLANK")
 
     context = {"MinimizerRetorts": retortsQueryOutput,
     "defaultRetort": retortsQueryOutput.first(),
     "retortResults": {},
     "infoTypes": ActualInformation.types,
     "infoSources": ActualInformation.sources,
-    "minimizerImage": "mainsite/minimizers/wen.png"
+    "minimizerImage": "mainsite/minimizers/wen.png",
+    "blankOption": blankOption,
+    "extraInfo": {}
     }
     
     #Get an image to display next to the dropdown
-    #minimizerImages = ImageInfo.objects.all()
-    jawns = list(ImageInfo.objects.all())
-    context["minimizerImage"] = random.sample(jawns, 1)[0]
+    minimizers = list(ImageInfo.objects.all())
+    context["minimizerImage"] = random.sample(minimizers, 1)[0]
         
     filteredResults = retortsQueryOutput.filter(shortName__exact = chosenRetort).first()
     if chosenRetort != "" and filteredResults != None:
         context["defaultRetort"] = filteredResults
-        context["retortResults"] = ActualInformation.objects.filter(retorts__exact = filteredResults)
+        context["retortResults"] = ActualInformation.objects.filter(retorts__exact = filteredResults, display__exact = True)
     else:
-        blankOption = retortsQueryOutput.filter(shortName__exact = "BLANK")
         if blankOption.first() != None:
             context["defaultRetort"] = blankOption.first()
 

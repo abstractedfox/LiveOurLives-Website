@@ -9,10 +9,13 @@
         <div id="top-container">
             {% if MinimizerRetorts %}
             <div id="retort-container">
-                
                 <form action="/" method="post" name="retortSelect">
                     {% csrf_token %}
                     <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()" class="minimizer-dropdown">
+                        <option value="{{ blankOption.shortName }}"
+                                {% if blankOption.shortName == defaultRetort.shortName %}
+                                    selected="selected"
+                                {% endif %} > {{ blankOption.shortName }} </option>
                         {% for retort in MinimizerRetorts %}
                             <option value="{{ retort.shortName }}"
                                 {% if retort.shortName == defaultRetort.shortName %}
@@ -34,8 +37,12 @@
             {% endif %}
         </div>
         <div id="content-container">
+            {% if extraInfo %}
+                <div class="extraInfo">
+                    a!
+                </div>
+            {% endif %}
             {% if retortResults %}
-                <!-- <p>THAT'S WHERE YOU'RE WRONG:</p> -->
                 {% for result in retortResults %}
                     <div class="fact">
                         {% if result.publication %}
@@ -84,13 +91,15 @@
                     </div>
                 {% endfor %}
             {% else %}
+                <div class="instructions">Select an option from the drop-down!</div>
                 <div class="voidspace"></div>
             {% endif %}
         </div>
         <footer>
             <div class="disclaimer">
-                Depictions of any specific individuals' speech are not true quotes and do not represent any specific person's speech or opinions.
+                Satirical depictions of any individuals' speech are not true quotes and do not represent any specific person's speech or opinions.
             </div>
+            Website by <a href="https://chrisisgre.at">chrisisgr8</a>
         </footer>
     </body>
 </html>
