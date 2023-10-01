@@ -7,6 +7,7 @@
     --smallest-text: 10pt;
     --small-text: 12pt;
     --medium-text: 16pt;
+    --bg-important: #46ADEB;
 }
 
 body{
@@ -18,7 +19,7 @@ body{
     height: 4rem;
     margin: 0;
     /*background-color: orange;*/
-    background-color: #46ADEB;
+    background-color: var(--bg-important);
     
     color: #ffffff;
     font-family: Aleo;
@@ -73,7 +74,7 @@ body{
 }
 
 #retort-container select{
-    font-size: 26pt;
+    font-size: 20pt;
     width: 36rem;
     position: relative;
     left: 8rem;
@@ -104,6 +105,11 @@ body{
     text-align: center;
     font-family: Aleo;
     font-size: var(--medium-text);
+    color: #fff;
+    
+    background-color: var(--bg-important);
+    border-radius: 5px;
+    padding: 0.5rem;
 }
 
 .flexrow{
