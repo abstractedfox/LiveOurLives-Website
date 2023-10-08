@@ -26,6 +26,7 @@ def renderPage(request, chosenRetort):
     minimizers = list(ImageInfo.objects.all())
     context["minimizerImage"] = random.sample(minimizers, 1)[0]
         
+    
     filteredResults = retortsQueryOutput.filter(shortName__exact = chosenRetort).first()
     if chosenRetort != "" and filteredResults != None:
         context["defaultRetort"] = filteredResults

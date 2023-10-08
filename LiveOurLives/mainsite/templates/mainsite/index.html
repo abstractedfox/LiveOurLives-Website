@@ -1,6 +1,11 @@
 {% load static %}
 <html>
-    <link rel="stylesheet" href="{% static 'mainsite/style.css' %}">
+    <head>
+        <title>You Have To Live Your Life{% if defaultRetort.longName != "" %}: "{{ defaultRetort.longName }}"
+            {% endif %}
+        </title>
+        <link rel="stylesheet" href="{% static 'mainsite/style.css' %}">
+    </head>
     <body>
         
         <div id="topbar">
@@ -28,7 +33,7 @@
                 <img src="{% static 'mainsite/koe2.png' %}" id="koe">
                 
                 {% if minimizerImage %}
-                    <img src="{% static minimizerImage.localPath %}" id="minimizer" alt="{{ minimizerImage.altText}}">
+                    <img src="{% static minimizerImage.localPath %}" id="minimizer" alt="{{ minimizerImage.altText}}" title="{{ minimizerImage.altText}}">
                 {% endif %}
             </div>
             

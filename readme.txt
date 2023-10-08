@@ -1,0 +1,1 @@
+LiveOurLives is the codebase for youhavetoliveyour.life, which is (at the time of this commit) nearly ready to go live. Feel free to poke around! It should look like a fairly standard Django site. 
