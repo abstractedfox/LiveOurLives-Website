@@ -8,6 +8,7 @@
     --small-text: 12pt;
     --medium-text: 16pt;
     --bg-important: #46ADEB;
+    --z-index-main: 1;
 }
 
 body{
@@ -48,7 +49,7 @@ body{
     width: 48rem;
     margin-left: auto;
     margin-right: auto;
-    z-index: 1;
+    z-index: var(--z-index-main);
 }
 
 #retort-container{
@@ -107,6 +108,8 @@ body{
     background-color: var(--bg-important);
     border-radius: 5px;
     padding: 0.5rem;
+    
+    z-index: var(--z-index-main);
 }
 
 .flexrow{
@@ -144,7 +147,7 @@ body{
     
     font-family: Aleo, serif;
     
-    z-index:1;
+    z-index: var(--z-index-main);
 }
 
 .fact-publication{
