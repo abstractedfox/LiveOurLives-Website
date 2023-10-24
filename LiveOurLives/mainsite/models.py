@@ -52,6 +52,7 @@ class ActualInformation(models.Model):
     STUDY = "STUDY"
     STATS = "STATISTICS"
     EXAMPLE = "EXAMPLE"
+    PAPER = "PAPER"
     types = [
         (ARTICLE_STUDY, "Article on a study"),
         (ARTICLE_OP, "Opinion piece"),
@@ -60,7 +61,8 @@ class ActualInformation(models.Model):
         (STUDY, "Study"),
         (STATS, "Statistics & Models"),
         (EXAMPLE, "Example"),
-        (OTHER_MIXED, "Other / Mixed")
+        (OTHER_MIXED, "Other / Mixed"),
+        (PAPER, "Paper")
     ]
 
     #Type of source:
@@ -70,6 +72,8 @@ class ActualInformation(models.Model):
     ENG = "ENGINEER"
     GOV_BODY = "GOVERNING BODY"
     JOURNALIST = "JOURNALIST"
+    ECONOMIST = "ECONOMIST"
+    OTHER_PRO = "OTHER PROFESSIONAL"
     sources = [
         (INDIVIDUAL_ACCOUNT, "Individual account"),
         (MEDICAL_PRO, "Medical professional"),
@@ -77,7 +81,9 @@ class ActualInformation(models.Model):
         (ENG, "Engineer"),
         (GOV_BODY, "Governing body"),
         (JOURNALIST, "Journalist"),
-        (OTHER_MIXED, "Other / Mixed")
+        (OTHER_MIXED, "Other / Mixed"),
+        (OTHER_PRO, "Other / Professional"),
+        (ECONOMIST, "Economist")
     ]
 
     type = models.CharField(max_length = 150, choices = types, default = OTHER_MIXED)
@@ -88,10 +94,11 @@ class ActualInformation(models.Model):
 
     headline = models.CharField(max_length = 500)
     publication = models.CharField(max_length = 150, blank = True, default="")
-    exerpt = models.CharField(max_length = 500, blank = True, default = "")
+    exerpt = models.CharField(max_length = 600, blank = True, default = "")
     author = models.CharField(max_length = 1000, blank = True, default = "")
     authors_title = models.CharField(max_length = 150, blank = True, default = "") #title, credential, or other of the author
     participants = models.IntegerField(blank = True, default = 0) #Participants in a study etc
+    meta_info = models.CharField(max_length = 1000, blank = True, default = "") #Any extra info we'd like to include
 
     datePublished = models.DateField(null = True, blank = True)
     dateArchived = models.DateField(null = True, blank = True)
@@ -100,9 +107,24 @@ class ActualInformation(models.Model):
     categories = models.ManyToManyField(InfoCategories)
 
     display = models.BooleanField(default = True)
+    
+    #Assign which part of the entry should be emphasized in the UI
+    emphasisChoices = [
+        ("HEADLINE", "HEADLINE"),
+        ("EXCERPT", "EXCERPT")
+    ]
+    emphasis = models.CharField(max_length = 100, default = emphasisChoices[0], choices = emphasisChoices)
 
     def __str__(self):
-        return self.liveLink
+        return self.headline + " " + self.liveLink
+        
+class MultiExcerpt(models.Model):
+    #Table for assigning multiple excerpts to a single entry
+    excerpt = models.CharField(max_length = 500)
+    parentEntry = models.ForeignKey(ActualInformation, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return excerpt
 
 class ImageInfo(models.Model):
     localPath = models.CharField(max_length = 200, blank = True, default = "#")

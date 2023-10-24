@@ -10,6 +10,7 @@ class InfoCategoriesAdmin(admin.ModelAdmin):
     
 class ActualInformationAdmin(admin.ModelAdmin):
     pass
+
     
 
 admin.site.register(MinimizerRetorts, MinimizerRetortsAdmin)
