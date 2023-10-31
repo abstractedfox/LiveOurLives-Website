@@ -128,10 +128,9 @@ LOGGING = {
     "disable_existing_loggers": False,
     "handlers":{
         "file": {
-            #"level": "WARNING",
-            "level": "DEBUG",
+            "level": "WARNING",
             "class": "logging.FileHandler",
-            "filename": "~/django-logs/django-debug.txt"
+            "filename": "django-debug.txt"
         },
     },
     "loggers": {
