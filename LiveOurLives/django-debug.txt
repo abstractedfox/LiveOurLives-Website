@@ -1,0 +1,298 @@
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 47, in index
+    return renderPage(request, "")
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 27, in renderPage
+    context["minimizerImage"] = random.sample(minimizers, 1)[0]
+  File "/usr/lib/python3.10/random.py", line 482, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+"GET / HTTP/1.1" 500 74545
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 50, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 27, in renderPage
+    context["minimizerImage"] = random.sample(minimizers, 1)[0]
+  File "/usr/lib/python3.10/random.py", line 482, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+"GET /favicon.ico HTTP/1.1" 500 74147
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /asdf
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 55, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 38, in renderPage
+    context["retortResults"].append(result)
+AttributeError: 'dict' object has no attribute 'append'
+"GET /asdf HTTP/1.1" 500 70841
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 60, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 41, in renderPage
+    processedResult = viewmodel_result()
+NameError: name 'viewmodel_result' is not defined
+"GET /idk HTTP/1.1" 500 70783
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 60, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 41, in renderPage
+    processedResult = viewmodel_result()
+NameError: name 'viewmodel_result' is not defined
+"GET /idk HTTP/1.1" 500 70783
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 60, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 41, in renderPage
+    processedResult = viewmodel_result()
+NameError: name 'viewmodel_result' is not defined
+"GET /idk HTTP/1.1" 500 70783
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 60, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 41, in renderPage
+    processedResult = viewmodel_result()
+NameError: name 'viewmodel_result' is not defined
+"GET /idk HTTP/1.1" 500 70783
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /asdf
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 60, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 41, in renderPage
+    processedResult = viewmodel_result()
+NameError: name 'viewmodel_result' is not defined
+"GET /asdf HTTP/1.1" 500 70795
+Internal Server Error: /asdf
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 61, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 42, in renderPage
+    processedResult = viewmodel_result()
+TypeError: viewmodel_result.__init__() missing 12 required positional arguments: 'isViewModel', 'headline', 'publication', 'liveLink', 'archiveLink', 'excerpt', 'author', 'authors_title', 'datePublished', 'dateArchived', 'typeOfPiece', and 'typeOfSource'
+"GET /asdf HTTP/1.1" 500 72055
+Internal Server Error: /asdf
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 63, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 42, in renderPage
+    processedResult = viewmodel_result(
+TypeError: viewmodel_result.__init__() missing 10 required positional arguments: 'isViewModel', 'liveLink', 'archiveLink', 'excerpt', 'author', 'authors_title', 'datePublished', 'dateArchived', 'typeOfPiece', and 'typeOfSource'
+"GET /asdf HTTP/1.1" 500 71858
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 73, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 61, in renderPage
+    return render(request, 'mainsite/index.html', context)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 69: 'endif', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+"GET /idk HTTP/1.1" 500 236693
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 73, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 52, in renderPage
+    typeOfPiece = result.type[result.type],
+TypeError: string indices must be integers
+"GET /idk HTTP/1.1" 500 70498
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 73, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 52, in renderPage
+    typeOfPiece = result.type.items()[0],
+AttributeError: 'str' object has no attribute 'items'
+"GET /idk HTTP/1.1" 500 70628
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 73, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 52, in renderPage
+    typeOfPiece = result.types[result.type],
+TypeError: list indices must be integers or slices, not str
+"GET /idk HTTP/1.1" 500 70568
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 73, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 52, in renderPage
+    typeOfPiece = result.types[result.type],
+TypeError: list indices must be integers or slices, not str
+"GET /idk HTTP/1.1" 500 70568
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 73, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 52, in renderPage
+    typeOfPiece = result.type,
+TypeError: list indices must be integers or slices, not str
+"GET /idk HTTP/1.1" 500 70540
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 74, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 42, in renderPage
+    print(result.type.items())
+AttributeError: 'str' object has no attribute 'items'
+"GET /idk HTTP/1.1" 500 70938
+"GET /static/ HTTP/1.1" 404 1767
+"GET /static/ HTTP/1.1" 404 1767
+Internal Server Error: /idk
+Traceback (most recent call last):
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/chris/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 74, in indexSelection
+    return renderPage(request, selection)
+  File "/home/chris/gits/LiveOurLives-Website/LiveOurLives/mainsite/views.py", line 42, in renderPage
+    print(result.sources[result.type])
+TypeError: list indices must be integers or slices, not str
+"GET /idk HTTP/1.1" 500 70888
+"GET /static/ HTTP/1.1" 404 1767
