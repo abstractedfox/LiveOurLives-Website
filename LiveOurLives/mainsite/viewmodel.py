@@ -13,3 +13,4 @@ class viewmodel_result:
     dateArchived: str
     typeOfPiece: str
     typeOfSource: str
+    emphasis: str

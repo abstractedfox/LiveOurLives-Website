@@ -16,7 +16,6 @@ def renderPage(request, chosenRetort):
 
     context = {"MinimizerRetorts": retortsQueryOutput,
     "defaultRetort": retortsQueryOutput.first(),
-    #"retortResults": {}, #change for iterating/processing results in views.py
     "retortResults": [],
     "infoTypes": ActualInformation.types,
     "infoSources": ActualInformation.sources,
@@ -33,10 +32,12 @@ def renderPage(request, chosenRetort):
         
     
     filteredResults = retortsQueryOutput.filter(shortName__exact = chosenRetort).first()
+
     if chosenRetort != "" and filteredResults != None:
         context["defaultRetort"] = filteredResults
         #context["retortResults"] = ActualInformation.objects.filter(retorts__exact = filteredResults, display__exact = True)
-        retortResultsUnprocessed = ActualInformation.objects.filter(retorts__exact = filteredResults, display__exact = True)
+        retortResultsUnprocessed = ActualInformation.objects.filter(retorts__exact = filteredResults, display__exact = True).order_by("-datePublished")
+
         for result in retortResultsUnprocessed:
             #context["retortResults"].append(result)
             processedResult = viewmodel_result(
@@ -49,9 +50,13 @@ def renderPage(request, chosenRetort):
                 authors_title = result.authors_title,
                 datePublished = result.datePublished,
                 dateArchived = result.dateArchived,
-                typeOfPiece = result.type,
-                typeOfSource = result.source
+                #typeOfPiece = result.type,
+                typeOfPiece = ActualInformation.typesResolve[result.type],
+                #typeOfSource = result.source,
+                typeOfSource = ActualInformation.sourcesResolve[result.source],
+                emphasis = result.emphasis
             )
+
             context["retortResults"].append(processedResult)
             
     else:

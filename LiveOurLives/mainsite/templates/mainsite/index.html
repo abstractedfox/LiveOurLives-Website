@@ -55,9 +55,15 @@
                                 <div class="fact-publication">{{ result.publication }}</div>
                             </div>
                         {% endif %}
+
                         <div class="flexrow">
-                            <div class="fact-headline"><a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
-                        
+                            {% if result.emphasis == "HEADLINE" %}
+                                <div class="fact-firstEmphasis">
+                            {% else %}
+                                <div class="fact-secondEmphasis">
+                            {% endif %}
+                            <a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
+
                             {% if result.archiveLink %}
                                 <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">Archive Link</a></div>
                             {% endif %}
@@ -65,7 +71,12 @@
                         
                         <div class="flexrow">
                             {% for excerpt in result.excerpt %}
-                                <div class="fact-exerpt">{{ excerpt }}</div>
+                                {% if result.emphasis == "EXCERPT" %}
+                                    <div class="fact-firstEmphasis">
+                                {% else %}
+                                    <div class="fact-secondEmphasis">
+                                {% endif %}
+                                {{ excerpt }}</div>
                             {% endfor %}
                         </div>
                         
