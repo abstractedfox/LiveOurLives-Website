@@ -55,18 +55,29 @@
                                 <div class="fact-publication">{{ result.publication }}</div>
                             </div>
                         {% endif %}
+
                         <div class="flexrow">
-                            <div class="fact-headline"><a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
-                        
+                            {% if result.emphasis == "HEADLINE" %}
+                                <div class="fact-firstEmphasis">
+                            {% else %}
+                                <div class="fact-secondEmphasis">
+                            {% endif %}
+                            <a href=" {{ result.liveLink }}">{{ result.headline }}</a></div>
+
                             {% if result.archiveLink %}
                                 <div class="fact-archiveLink"><a href=" {{ result.archiveLink }}">Archive Link</a></div>
                             {% endif %}
                         </div>
                         
                         <div class="flexrow">
-                            {% if result.exerpt %}
-                                <div class="fact-exerpt">{{ result.exerpt }}</div>
-                            {% endif %}
+                            {% for excerpt in result.excerpt %}
+                                {% if result.emphasis == "EXCERPT" %}
+                                    <div class="fact-firstEmphasis">
+                                {% else %}
+                                    <div class="fact-secondEmphasis">
+                                {% endif %}
+                                {{ excerpt }}</div>
+                            {% endfor %}
                         </div>
                         
                         <div class="flexrow">
@@ -88,11 +99,20 @@
                             </div>
                         </div>
                         
-                        <div class="flexrow">
-                            <div class="fact-type">{{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                        {% if result.get_type_display %} <!-- indicates pre-viewmodel -->
+                            <div class="flexrow">
+                                <div class="fact-type">{{ result.get_type_display }} <!--djangoism; 'result.type' would return the user-unfriendly name-->
+                                </div>
+                                <div class="fact-source">{{ result.get_source_display }}</div>
                             </div>
-                            <div class="fact-source">{{ result.get_source_display }}</div>
-                        </div>
+                        {% endif %}
+                        {% if result.typeOfPiece %} <!-- indicates post-viewmodel -->
+                            <div class="flexrow">
+                                <div class="fact-type">{{ result.typeOfPiece }}
+                                </div>
+                                <div class="fact-source">{{ result.typeOfSource }}</div>
+                            </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             {% else %}

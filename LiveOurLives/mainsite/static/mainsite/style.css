@@ -6,7 +6,8 @@
     --top-height: 24rem;
     --smallest-text: 10pt;
     --small-text: 12pt;
-    --medium-text: 16pt;
+    --medium-text: 14pt;
+    --big-text: 21pt;
     --bg-important: #46ADEB;
     --z-index-main: 1;
 }
@@ -155,13 +156,25 @@ body{
     font-weight: bold;
 }
 
+/*
 .fact-headline{
-    font-size: 21pt;
+    font-size: var(--big-text);
 }
 
 .fact-exerpt{
     font-size: 14pt;
     margin-bottom: 0.4rem;
+}*/
+
+
+.fact-firstEmphasis{
+    font-size: var(--big-text);
+}
+
+.fact-secondEmphasis{
+    /*font-size: 14pt;*/
+    font-size: var(--medium-text);
+    /*margin-bottom: 0.4rem;*/
 }
 
 .fact-author{

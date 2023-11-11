@@ -64,6 +64,19 @@ class ActualInformation(models.Model):
         (OTHER_MIXED, "Other / Mixed"),
         (PAPER, "Paper")
     ]
+    
+    #Mapping of the 'types' variable contents to the actual user-facing text
+    typesResolve = {
+        ARTICLE_STUDY: types[0][1],
+        ARTICLE_OP: types[1][1], 
+        ARTICLE_STATS: types[2][1],
+        ANECDOTE: types[3][1],
+        STUDY: types[4][1],
+        STATS: types[5][1],
+        EXAMPLE: types[6][1],
+        OTHER_MIXED: types[7][1],
+        PAPER: types[8][1]
+    }
 
     #Type of source:
     INDIVIDUAL_ACCOUNT = "INDIVIDUAL ACCOUNT"
@@ -85,6 +98,17 @@ class ActualInformation(models.Model):
         (OTHER_PRO, "Other / Professional"),
         (ECONOMIST, "Economist")
     ]
+    sourcesResolve = {
+        INDIVIDUAL_ACCOUNT: sources[0][1],
+        MEDICAL_PRO: sources[1][1],
+        PRO_GROUP: sources[2][1],
+        ENG: sources[3][1],
+        GOV_BODY: sources[4][1],
+        JOURNALIST: sources[5][1],
+        OTHER_MIXED: sources[6][1],
+        OTHER_PRO: sources[7][1],
+        ECONOMIST: sources[8][1]    
+    }
 
     type = models.CharField(max_length = 150, choices = types, default = OTHER_MIXED)
     source = models.CharField(max_length = 150, choices = sources, default = OTHER_MIXED)
