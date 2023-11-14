@@ -137,7 +137,7 @@ class ActualInformation(models.Model):
         ("HEADLINE", "HEADLINE"),
         ("EXCERPT", "EXCERPT")
     ]
-    emphasis = models.CharField(max_length = 100, default = emphasisChoices[0], choices = emphasisChoices)
+    emphasis = models.CharField(max_length = 100, default = emphasisChoices[0][1], choices = emphasisChoices)
 
     def __str__(self):
         return self.headline + " " + self.liveLink
