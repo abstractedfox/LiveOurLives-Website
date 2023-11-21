@@ -10,10 +10,13 @@
     --big-text: 21pt;
     --bg-important: #46ADEB;
     --z-index-main: 1;
+    
+    
 }
 
 body{
     margin: 0;
+    overflow-x: hidden;
 }
 
 #topbar{
@@ -34,6 +37,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 
 #topbar > *{
     margin-right: 0.5rem;
@@ -56,20 +60,18 @@ body{
 #retort-container{
     width: 100%;
     height: var(--top-height);
-    
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     align-items: center;
     
-    
     margin-bottom: 2rem;
-    
 }
 
 #top-container{
     margin-left: 8rem;
+    /*padding-left: 8rem;*/
 }
 
 #retort-container select{
@@ -97,7 +99,7 @@ body{
     position: relative;
     left: -3rem;
     top: 0.5rem;
-    z-index: -1;
+    z-index: 1;
 }
 
 .instructions{
@@ -117,6 +119,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    margin-bottom: 0.2rem;
 }
 
 .flexrow > *{
@@ -138,8 +141,10 @@ body{
 
     width: 100%;
     background-color: #ddd;
-    margin-bottom: 17px;
     
+    margin-bottom: 2rem;
+    
+    /*note to future generations: we're using px here because we get nice round corners with px and distorted corners with percentages (looks like it applies the border radius for a square shaped element and then distorts them away from a square)*/
     border-radius: 25px;
     
     padding:2%;
@@ -156,25 +161,16 @@ body{
     font-weight: bold;
 }
 
-/*
-.fact-headline{
-    font-size: var(--big-text);
-}
-
-.fact-exerpt{
-    font-size: 14pt;
-    margin-bottom: 0.4rem;
-}*/
-
-
 .fact-firstEmphasis{
     font-size: var(--big-text);
 }
 
 .fact-secondEmphasis{
-    /*font-size: 14pt;*/
     font-size: var(--medium-text);
-    /*margin-bottom: 0.4rem;*/
+}
+
+.excerpt .fact-firstEmphasis{
+    text-align: center;
 }
 
 .fact-author{

@@ -1,6 +1,5 @@
 .DS_Store
 __pycache__
 *.sqlite3
-minimizers
 db.sqlite
 django-debug.txt
