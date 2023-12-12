@@ -16,7 +16,7 @@
             <div id="retort-container">
                 <form action="/" method="post" name="retortSelect">
                     {% csrf_token %}
-                    <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()" class="minimizer-dropdown">
+                    <select name="minimizer-dropdown" onChange="javascript:document.retortSelect.submit()"  class="minimizer-dropdown">
                         <option value="{{ blankOption.shortName }}"
                                 {% if blankOption.shortName == defaultRetort.shortName %}
                                     selected="selected"

@@ -215,3 +215,7 @@ footer{
 .voidspace{
     height: 20rem;
 }
+
+.minimizer-dropdown{
+    z-index: 2;
+}
